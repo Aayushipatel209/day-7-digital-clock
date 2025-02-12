@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIGITAL CLOCK</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #4d90dc;
+        /* direction,color1,color2...link--- */
+      }
+
+      #clock > div {
+        padding: 30px;
+        margin: 30px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        box-shadow: 5px 5px 23px #411cae, -5px -5px 23px #056cfd;
+      }
+
+      span {
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+   
+    <div id="clock">
+      <div id="hours">13</div>
+      <span>:</span>
+      <div id="minutes">13</div>
+      <span>:</span>
+      <div id="seconds">13</div>
+      <div id="half">PM</div>
+    </div>
+    
+  </body>
+  <script>
+ 
+     
+       function clock()
+       {
+           let hours=document.getElementById('hours');
+           let minutes=document.getElementById('minutes');
+           let seconds=document.getElementById('seconds');
+           let half=document.getElementById('half');
+
+           let h=new Date().getHours();
+           let m=new Date().getMinutes();
+           let s=new Date().getSeconds();
+
+        //    let ampm =h>=12? "PM" :"AM";
+
+
+        // AMPM
+        if(h>=12)
+        {
+             ampm="PM"
+        }
+        else
+        {
+              ampm="AM"
+        }
+
+
+
+        // after 12   01
+
+           if(h>12)
+           {
+               h=h-12;
+           }
+
+
+
+        //    single digit add "0"
+       
+           if(s<10)
+           {
+                s="0" + s
+           }
+           else
+           {
+                s
+           }
+
+           if(h<10)
+           {
+                h="0" + h
+           }
+           else
+           {
+                h
+           }
+           
+           if(m<10)
+           {
+                m="0" + m
+           }
+           else
+           {
+                m
+           }
+           
+           hours.innerHTML=h;
+           minutes.innerHTML=m;
+           seconds.innerHTML=s;
+           half.innerHTML=ampm;
+
+
+           
+
+       };
+
+       setInterval(clock,1000);
+
+      
+
+  </script>
+</html>
